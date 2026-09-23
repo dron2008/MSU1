@@ -15,16 +15,12 @@ int isNumberInFile(FILE *file, int X)
 
 int main()
 {
-    char input_data.txt[100];
     int X;
 
-    printf(" input_data.txt ");
-    scanf("%99s", input_data.txt);
-
-    printf("26 ");
+    printf("Введите X: ");
     scanf("%d", &X);
 
-    FILE *file = fopen(input_data.txt, "r");
+    FILE *file = fopen("input_data.txt", "r");
 
     if (file == NULL)
     {

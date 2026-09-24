@@ -1,4 +1,4 @@
-#include <stdio.h>
+int sum = 0;
 
 int isNumberInFile(FILE *file, int X)
 {
@@ -7,20 +7,23 @@ int isNumberInFile(FILE *file, int X)
     while (fscanf(file, "%d", &a) == 1)
     {
         if (a == X)
-            return 1;
+        {
+            sum = sum + 1;
+        }
     }
 
-    return 0;
+    return sum;
 }
 
-int main()
+int main(void)
 {
     int X;
+    FILE *file;
 
     printf("Введите X: ");
     scanf("%d", &X);
 
-    FILE *file = fopen("input_data.txt", "r");
+    file = fopen("input_data.txt", "r");
 
     if (file == NULL)
     {
@@ -28,10 +31,7 @@ int main()
         return 1;
     }
 
-    if (isNumberInFile(file, X))
-        printf("Число X есть в последовательности\n");
-    else
-        printf("Числа X нет в последовательности\n");
+    printf("%d\n", isNumberInFile(file, X));
 
     fclose(file);
 

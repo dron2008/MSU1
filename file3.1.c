@@ -4,7 +4,7 @@ int isNumberInfile(FILE *file, double X);
 int isNumberInfile(FILE *file, double X)
 {
 int sum = 0;double a;
-while (fscanf(file, "lf", &a) == 1)
+while (fscanf(file, "%lf", &a) == 1)
 if (a == X)
 sum = sum + 1;
 return sum;
@@ -13,7 +13,7 @@ int main (void)
 {
 double X; FILE *file;
 printf ("Введите Х: ") ;
-scanf ("lf", &X) ;
+scanf ("%lf", &X) ;
 file = fopen ("input_data. txt", "r");
 if (file == NULL)
 {

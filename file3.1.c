@@ -14,7 +14,7 @@ int main (void)
 double X; FILE *file;
 printf ("Введите Х: ") ;
 scanf ("%lf", &X) ;
-file = fopen ("input_data. txt", "r");
+file = fopen ("input_data.txt", "r");
 if (file == NULL)
 {
 printf ("Не удалось открыть файл\n") ;

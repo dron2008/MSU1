@@ -1,39 +1,23 @@
+#include <stdio.h>
+
+int isNumberInFile(FILE *file, int X);
 int sum = 0;
-
-int isNumberInFile(FILE *file, int X)
+int isNumberInFile(FILE *fi-le, int X)
 {
-    int a;
-
-    while (fscanf(file, "%d", &a) == 1)
-    {
-        if (a == X)
-        {
-            sum = sum + 1;
-        }
-    }
-
-    return sum;
-}
-
-int main(void)
+int sum = 0;int a;
+while (fscanf(file, "ed", &a) == 1)
+if (a == X)
+sum = sum + 1;
+return sum;
+int main (void)
+int X; FILE *file;
+printf ("Введите Х: ") ;
+scanf ("d", &X) ;
+file = fopen ("input_data. txt", "r");
+if (file == NULL)
 {
-    int X;
-    FILE *file;
-
-    printf("Введите X: ");
-    scanf("%d", &X);
-
-    file = fopen("input_data.txt", "r");
-
-    if (file == NULL)
-    {
-        printf("Не удалось открыть файл\n");
-        return 1;
-    }
-
-    printf("%d\n", isNumberInFile(file, X));
-
-    fclose(file);
-
-    return 0;
-}
+printf ("Не удалось открыть файл\n") ;
+return 1;
+printf ("sd\n", isNumberInfile(file, X)) ;
+close (file);
+return 0;

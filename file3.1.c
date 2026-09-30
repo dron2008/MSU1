@@ -1,18 +1,17 @@
 #include <stdio.h>
 
-int isNumberInFile(FILE *file, int X);
-int sum = 0;
-int isNumberInFile(FILE *fi-le, int X)
+int isNumberInFile(FILE *file, double X);
+int isNumberInFile(FILE *fi-le, double X)
 {
-int sum = 0;int a;
-while (fscanf(file, "ed", &a) == 1)
+int sum = 0;double a;
+while (fscanf(file, "lf", &a) == 1)
 if (a == X)
 sum = sum + 1;
 return sum;
 int main (void)
-int X; FILE *file;
+double X; FILE *file;
 printf ("Введите Х: ") ;
-scanf ("d", &X) ;
+scanf ("lf", &X) ;
 file = fopen ("input_data. txt", "r");
 if (file == NULL)
 {
@@ -21,3 +20,4 @@ return 1;
 printf ("sd\n", isNumberInfile(file, X)) ;
 close (file);
 return 0;
+}

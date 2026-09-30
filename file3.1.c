@@ -8,7 +8,9 @@ while (fscanf(file, "lf", &a) == 1)
 if (a == X)
 sum = sum + 1;
 return sum;
+}
 int main (void)
+{
 double X; FILE *file;
 printf ("Введите Х: ") ;
 scanf ("lf", &X) ;

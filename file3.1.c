@@ -20,7 +20,7 @@ if (file == NULL)
 printf ("Не удалось открыть файл\n") ;
 return 1;
 }
-printf ("sd\n", isNumberInfile(file, X)) ;
-close (file);
+printf ("%d\n", isNumberInfile(file, X)) ;
+fclose (file);
 return 0;
 }

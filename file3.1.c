@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int isNumberInFile(FILE *file, double X);
-int isNumberInFile(FILE *fi-le, double X)
+int isNumberInfile(FILE *file, double X);
+int isNumberInfile(FILE *file, double X)
 {
 int sum = 0;double a;
 while (fscanf(file, "lf", &a) == 1)
@@ -19,6 +19,7 @@ if (file == NULL)
 {
 printf ("Не удалось открыть файл\n") ;
 return 1;
+}
 printf ("sd\n", isNumberInfile(file, X)) ;
 close (file);
 return 0;

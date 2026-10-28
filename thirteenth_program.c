@@ -1,4 +1,3 @@
-#include <math.h>
 #include "sum_func.h"
 
 int main(void)
@@ -7,20 +6,21 @@ int main(void)
 
     if (f == NULL)
     {
-        printf("File error");
+        printf("File error\n");
         return -1;
     }
-    else
-    {
-        int result = all_equal(f);
 
-        if (result == 1)
-            printf("All elements are equal\n");
-        else
-            printf("Not all elements are equal\n");
+    int result = all_nums(f);
 
-        fclose(f);
+    fclose(f);
 
+    if (result == -1)
         return 0;
-    }
+
+    if (result == 1)
+        printf("Все или кроме одного равны\n");
+    else
+        printf("Нельзя сделать все числа равными, убрав одно\n");
+
+    return 0;
 }

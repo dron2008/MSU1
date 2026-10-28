@@ -6,5 +6,5 @@
 
 #define eps 1.e-10
 
-int all_equal(FILE *f);
+int all_nums(FILE *f);
 #endif

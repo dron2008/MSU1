@@ -6,10 +6,7 @@ int all_nums(FILE *f)
     int have_b = 0, count_a = 0, count_b = 0;
 
     if (fscanf(f, "%lf", &previous) != 1)
-    {
-        printf("File is empty\n");
         return -1;
-    }
 
     count_a = 1;
 
@@ -17,22 +14,16 @@ int all_nums(FILE *f)
     {
         if (fabs(current - previous) < eps)
             count_a++;
-        else
+        else if (have_b == 0)
         {
-            if (have_b == 0)
-            {
-                b = current;
-                have_b = 1;
-                count_b++;
-            }
-            else
-            {
-                if (fabs(current - b) < eps)
-                    count_b++;
-                else
-                    return 0;
-            }
+            b = current;
+            have_b = 1;
+            count_b = 1;
         }
+        else if (fabs(current - b) < eps)
+            count_b++;
+        else
+            return 0;
     }
 
     if (count_a > 1 && count_b > 1)

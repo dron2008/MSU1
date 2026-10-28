@@ -15,12 +15,11 @@ int main(void)
     fclose(f);
 
     if (result == -1)
-        return 0;
-
-    if (result == 1)
+        printf("File is empty\n");
+    else if (result == 1)
         printf("Все или кроме одного равны\n");
     else
-        printf("Нельзя сделать все числа равными, убрав одно\n");
+        printf("Не все или кроме одного равны\n");
 
     return 0;
 }

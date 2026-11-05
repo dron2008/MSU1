@@ -1,10 +1,8 @@
-all: thirteenth_program
+all: twenty_third_program.o relation_func.o
+gcc twenty_third_program.o relation_func.o -o twenty_third_program
 
-thirteenth_program: thirteenth_program.o sum_func.o
-	gcc thirteenth_program.o sum_func.o -o thirteenth_program
+twenty_third_program.o: twenty_third_program.c
+gcc -c twenty_third_program.c
 
-thirteenth_program.o: thirteenth_program.c sum_func.h
-	gcc -c thirteenth_program.c
-
-sum_func.o: sum_func.c sum_func.h
-	gcc -c sum_func.c
+relation_func.o: relation_func.c
+gcc -c relation_func.c

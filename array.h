@@ -6,8 +6,8 @@
 #include <math.h>
 
 #define N 50
-#define eps
+#define eps 1.e-10
 
-int find_position(FILE *f);
+int predmintions(FILE *f);
 
 #endif

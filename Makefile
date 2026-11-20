@@ -1,5 +1,4 @@
 all: array
-	./array
 
 array: array.o main_array.o
 	gcc array.o main_array.o -o array -lm

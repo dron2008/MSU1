@@ -4,7 +4,16 @@
 int predmintions(FILE *f)
 {
     int len;
-    double arr[N];
+    int i;
+    int flag;
+    int last;
+
+    double *arr;
+    double min;
+    double predmin;
+
+    flag = 0;
+    last = -1;
 
     if (fscanf(f, "%d", &len) != 1)
     {
@@ -16,22 +25,25 @@ int predmintions(FILE *f)
         return -2;
     }
 
-    if (len > N)
+    arr = (double *)malloc(len * sizeof(double));
+
+    if (arr == NULL)
     {
         return -2;
     }
 
-    for (int i = 0; i < len; i++)
+    for (i = 0; i < len; i++)
     {
         if (fscanf(f, "%lf", &arr[i]) != 1)
         {
+            free(arr);
             return -2;
         }
     }
 
-    double min = arr[0];
+    min = arr[0];
 
-    for (int i = 1; i < len; i++)
+    for (i = 1; i < len; i++)
     {
         if (arr[i] < min - eps)
         {
@@ -39,41 +51,28 @@ int predmintions(FILE *f)
         }
     }
 
-    double predmin;
-    int flag = 0;
-
-    for (int i = 0; i < len; i++)
+    for (i = 0; i < len; i++)
     {
         if (arr[i] > min + eps)
         {
-            if (flag == 0)
+            if (flag == 0 || arr[i] < predmin - eps)
             {
                 predmin = arr[i];
+                last = i;
                 flag = 1;
             }
-            else
+            else if (fabs(arr[i] - predmin) < eps)
             {
-                if (arr[i] < predmin - eps)
-                {
-                    predmin = arr[i];
-                }
+                last = i;
             }
         }
     }
+
+    free(arr);
 
     if (flag == 0)
     {
         return -1;
-    }
-
-    int last = -1;
-
-    for (int i = 0; i < len; i++)
-    {
-        if (fabs(arr[i] - predmin) < eps)
-        {
-            last = i;
-        }
     }
 
     return last + 1;

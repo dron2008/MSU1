@@ -1,0 +1,32 @@
+
+#include "array.h"
+
+int main(void)
+{
+    FILE *f = fopen("input_data.txt", "r");
+
+    if (f == NULL)
+    {
+        printf("Не удалось открыть файл\n");
+        return 1;
+    }
+
+    result = predmintions(f);
+
+    fclose(f);
+
+    if (result == -2)
+    {
+        printf("Некорректные входные данные\n");
+    }
+    else if (result == -1)
+    {
+        printf("Второго минимума не существует\n");
+    }
+    else
+    {
+        printf("Позиция: %d\n", result);
+    }
+
+    return 0;
+}

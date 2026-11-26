@@ -1,4 +1,3 @@
-
 #include "array.h"
 
 int predmintions(FILE *f)
@@ -55,11 +54,16 @@ int predmintions(FILE *f)
     {
         if (arr[i] > min + eps)
         {
-            if (flag == 0 || arr[i] < predmin - eps)
+            if (flag == 0)
             {
                 predmin = arr[i];
                 last = i;
                 flag = 1;
+            }
+            else if (arr[i] < predmin - eps)
+            {
+                predmin = arr[i];
+                last = i;
             }
             else if (fabs(arr[i] - predmin) < eps)
             {

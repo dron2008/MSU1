@@ -2,17 +2,7 @@
 
 int predmintions(FILE *f)
 {
-    int len;
-    int i;
-    int flag;
-    int last;
-
-    double *arr;
-    double min;
-    double predmin;
-
-    flag = 0;
-    last = -1;
+    int len, int i;int flag, int last, double *arr, double min, double predmin,flag = 0, last = -1;
 
     if (fscanf(f, "%d", &len) != 1)
     {
